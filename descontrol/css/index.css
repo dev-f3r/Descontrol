@@ -1,0 +1,172 @@
+* {
+    border: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 0.9rem;
+    font-family: Titillium Web;
+}
+
+.layout {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(9, 1fr);
+    outline: 1.5px solid #000;
+}
+
+.contenedor-carta {
+    grid-column: 1/10;
+    grid-row: 1/12;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.img-carta {
+    height: calc((6/11)*100%);
+}
+
+.contenedor-consola-carta {
+    height: calc((5/11)*100%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.consola-carta {
+    padding: 0 20px;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.contenedor-consola-personaje {
+    grid-column: 1/10;
+    grid-row: 12/15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.consola-personaje {
+    text-align: center;
+    padding: 30px;
+}
+
+.contenedor-botones-juego {
+    grid-column: 1/10;
+    grid-row: 15/16;
+    display: flex;
+    align-items: center;
+}
+
+.boton-juego {
+    border-top: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.boton-juego.boton-levantarCarta {
+    border-right: 1px solid #000;
+}
+
+.encabezado-elementos-generales {
+    grid-column: 1/10;
+    grid-row: 16/17;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    background: #000;
+    color: #fff;
+}
+
+.encabezado-personaje,
+.encabezado-atributo,
+.encabezado-estado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.encabezado-personaje {
+    grid-column: 1/ span 2;
+}
+
+.encabezado-atributo {
+    grid-column: 3 / span 5;
+}
+
+.encabezado-estado {
+    grid-column: 8 / span 2;
+}
+
+.encabezado-elementos-generales * {
+    text-align: center;
+}
+
+.contenedor-elementos-generales {
+    grid-column: 1/10;
+    grid-row: 17/-1;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    height: 100%;
+}
+
+.contenedor-personaje {
+    grid-column: 1/3;
+    background: #000;
+    border: 1px solid #fff;
+}
+
+.contenedor-atributo {
+    grid-column: 3/8;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background: #000;
+}
+
+.atributo {
+    margin: 0 1px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.img-atributo {
+    border: 1px solid #fff;
+    height: 50%;
+    background: #fff;
+}
+
+.text-atributo {
+    margin-top: 2px;
+    height: 50%;
+    background: #fff;
+    text-align: center;
+}
+
+.contenedor-estado {
+    grid-column: 8/-1;
+    background: #000;
+    border: 1px solid #fff;
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+    .layout {
+        width: 60vw;
+    }
+}
