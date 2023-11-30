@@ -118,10 +118,26 @@ body {
     height: 100%;
 }
 
-.contenedor-personaje {
-    grid-column: 1/3;
+.contenedor-personaje,
+.contenedor-estado {
     background: #000;
     border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-personaje img,
+.contenedor-estado img {
+    background-color: #fff;
+}
+
+.contenedor-personaje {
+    grid-column: 1/3;
+}
+
+.contenedor-estado {
+    grid-column: 8/10;
 }
 
 .contenedor-atributo {
@@ -148,17 +164,48 @@ body {
 }
 
 .text-atributo {
-    margin-top: 2px;
     height: 50%;
+    margin-top: 2px;
     background: #fff;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.contenedor-estado {
-    grid-column: 8/-1;
-    background: #000;
-    border: 1px solid #fff;
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: none;
+    width: 33vW;
+    height: 33vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 16.6%);
+    text-align: center;
+    z-index: 250;
+    outline: solid #000000 9px;
+    border: solid #ffffff 9px;
+    background-color: rgb(255, 255, 255);
 }
+
+.item-modal.header {
+    grid-column: 1/ span 2;
+}
+
+.item-modal {
+    margin: 2px;
+}
+
+.modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
 
 @media only screen and (min-width: 600px) {
     body {
@@ -168,5 +215,16 @@ body {
 
     .layout {
         width: 60vw;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+    .layout {
+        width: 40vw;
     }
 }

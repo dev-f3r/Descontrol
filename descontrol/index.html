@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
 
@@ -42,7 +42,7 @@
         </div>
         <div class="item-grilla contenedor-elementos-generales">
             <div class="elemento-general contenedor-personaje">
-                <img src="." alt="" id="imgPersonaje" class="img-personaje">
+                <img src="img/vida.png" alt="" id="imgPersonaje" class="img-personaje">
             </div>
             <div class="elemento-general contenedor-atributo">
                 <div class="atributo">
@@ -62,17 +62,41 @@
                     <span class="text-atributo">0</span>
                 </div>
                 <div class="atributo">
-                    <img src="img/accion.png" alt="" class="img-atributo">
+                    <img src="img/vida.png" alt="" class="img-atributo">
                     <span class="text-atributo">0</span>
                 </div>
             </div>
             <div class="elemento-general contenedor-estado">
-                <img src="" alt="" class="img-estado" id="imgEstado">
+                <img src="img/vida.png" alt="" class="img-estado" id="imgEstado">
             </div>
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <div class="modal" id="modalArmas" style="display: none;">
+
+        <div class="item-modal header"><span class="texto">AVATARES</span></div>
+        <div class="item-modal" id="cerrarModal"><img src="img/cerrar.png"></div>
+
+        <div class="item-modal" id="personaje1"><img src="img/new.png" class="modal-img"></div>
+        <div class="item-modal" id="personaje2"><img src="img/new.png" class="modal-img"></div>
+        <div class="item-modal" id="personaje3"><img src="img/new.png" class="modal-img"></div>
+
+        <div class="item-modal" id="personaje4"><img src="img/new.png" class="modal-img"></div>
+        <div class="item-modal" id="personaje5"><img src="img/new.png" class="modal-img"></div>
+        <div class="item-modal" id="personaje6"><img src="img/new.png" class="modal-img"></div>
+
+
+        <div class="item-modal" id="personaje7"><img src="img/new.png" class="modal-img"></div>
+        <div class="item-modal" id="personaje8"><img src="img/new.png" class="modal-img"></div>
+        <div class="item-modal" id="personaje9"><img src="img/new.png" class="modal-img"></div>
+
+        <div class="item-modal" id="personaje10"><img src="img/new.png" class="modal-img"></div>
+        <div class="item-modal" id="personaje11"><img src="img/new.png" class="modal-img"></div>
+        <div class="item-modal" id="personaje12"><img src="img/new.png" class="modal-img"></div>
+
+    </div>
+
+    <script src="js/personajes.js"></script>
 </body>
 
 </html>
