@@ -182,8 +182,8 @@ body {
     display: none;
     width: 33vW;
     height: 33vh;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 16.6%);
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(5, 20%);
     text-align: center;
     z-index: 250;
     outline: solid #000000 9px;
@@ -196,7 +196,8 @@ body {
 }
 
 .item-modal {
-    margin: 2px;
+    padding: 2px;
+    border: 1px solid #000;
 }
 
 .modal-img {
@@ -205,7 +206,22 @@ body {
     object-fit: cover;
 }
 
-
+.btn-cambiar-personaje {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    color: #fff;
+    z-index: 250;
+    width: 25%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px #fff;
+    border-style: dotted;
+}
 
 @media only screen and (min-width: 600px) {
     body {
