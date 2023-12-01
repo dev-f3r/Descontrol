@@ -116,19 +116,19 @@ body {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     height: 100%;
+    background: #000;
 }
 
 .contenedor-personaje,
 .contenedor-estado {
     background: #000;
-    border: 1px solid #fff;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.contenedor-personaje img,
-.contenedor-estado img {
+.contenedor-personaje > img,
+.contenedor-estado > img {
     background-color: #fff;
 }
 
@@ -141,6 +141,7 @@ body {
 }
 
 .contenedor-atributo {
+    border: 0 !important;
     grid-column: 3/8;
     height: 100%;
     display: flex;
@@ -172,6 +173,16 @@ body {
     justify-content: center;
 }
 
+.elemento-general {
+    margin: 0 1px;
+    height: calc(((100vh / 18) * 2) - 2px);
+    border: 1.5px solid #fff;
+}
+.elemento-general > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 
 .modal {
     position: absolute;
