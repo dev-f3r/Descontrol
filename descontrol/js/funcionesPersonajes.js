@@ -32,7 +32,7 @@ function cambiarPersonaje(nombre) {
 // TODO: Funciones para editar la vida del personaje
 
 // * Identificadores de cada personaje del menu correspondiente
-const idBtnPersonaje = ["test1", "test2", "test3", "test4"]
+const idBtnPersonaje = Object.keys(personajesDict)
 // Recorre cada identificador y les agrega un evento
 idBtnPersonaje.forEach(id => {
     // ? Captura el click de un personaje a elegir
@@ -45,5 +45,7 @@ idBtnPersonaje.forEach(id => {
         cerrarModal.click()
         // Limpia la consola
         textoConsolaPersonaje.click()
+        // Muestra la descripcion del personaje
+        consolaPersonajeTxt(personaje.descripcion)
     })
 })
