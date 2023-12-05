@@ -7,29 +7,6 @@ let esModalAvatar = false
 // ? Indica si el boton para mostrar el modal esta activado o no
 let esBtnMostrarModalPersonaje = false
 
-/**
- * ? Muestra los datos del personaje actual incluyendo imagen, atributos
- * y descripción.
- * 
- * @param {Object} personaje - El objeto del personaje actual
- */
-function mostrarPersonaje(personaje) {
-    // Establece la imagen del personaje basado en la propiedad personaje.imagen
-    imgPersonaje.src = personaje.imagen;
-    // Recorre las claves de atributo definidas y actualiza los elementos de la UI
-    const atributos = ["ataque", "esquiva", "velocidad", "vida", "accion"];
-    atributos.forEach(key => {
-        document.getElementById(`${key}Indicador`).textContent = personaje[key];
-    });
-    // Muestra la descripción del personaje en la consola
-    consolaPersonajeTxt(personaje.descripcion);
-}
-
-// TODO: Completar
-function mostrarCarta() {
-
-}
-
 { // * Triggers
     // ? Captura el click del boton de personaje
     personajeBtn.addEventListener('click', () => {
@@ -63,26 +40,11 @@ function mostrarCarta() {
     })
 
     // ? Captura el click de la consola de personaje
-    consolaPersonaje.addEventListener('click', () => {
+    textoConsolaPersonaje.addEventListener('click', () => {
         // Limpia el texto
-        consolaPersonajeTxt("")
+        consolaPersonajeTxt("CONSOLA")
         // Oculta el boton del menu de personajes
         btnMostrarModalPersonaje.style.display = "none"
-    })
-
-    // * Identificadores de cada boton en el menu de personajes
-    const idBtnPersonaje = ["personaje1", "personaje2", "personaje3", "personaje4", "personaje5"]
-    // Recorre cada identificador y les agrega un evento
-    idBtnPersonaje.forEach(id => {
-        // ? Captura el click de un personaje a elegir
-        document.getElementById(id).addEventListener('click', () => {
-            // Cambia el personaje actual
-            cambiarPersonaje(id)
-            // Lo muestra
-            mostrarPersonaje()
-            // Cierra el modal
-            cerrarModal.click()
-        })
     })
 }
 
