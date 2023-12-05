@@ -127,8 +127,8 @@ body {
     align-items: center;
 }
 
-.contenedor-personaje > img,
-.contenedor-estado > img {
+.contenedor-personaje>img,
+.contenedor-estado>img {
     background-color: #fff;
 }
 
@@ -178,7 +178,8 @@ body {
     height: calc(((100vh / 18) * 2) - 2px);
     border: 1.5px solid #fff;
 }
-.elemento-general > img {
+
+.elemento-general>img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -232,6 +233,23 @@ body {
     justify-content: center;
     border: 2px #fff;
     border-style: dotted;
+}
+
+.contenedor-btn-mas-menos {
+    top: calc(((100vh / 18) * 11));
+    left: 50vw;
+    transform: translate(-50%, 0%);
+    height: calc((100vh / 18) * 3);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 250;
+}
+
+.contenedor-btn-mas-menos img {
+    height: calc(100% / 2.5);
 }
 
 @media only screen and (min-width: 600px) {
