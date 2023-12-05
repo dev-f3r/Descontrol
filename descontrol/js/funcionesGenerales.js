@@ -8,20 +8,21 @@ let esModalAvatar = false
 let esBtnMostrarModalPersonaje = false
 
 /**
- * ? Muestra los datos del personaje actual
+ * ? Muestra los datos del personaje actual incluyendo imagen, atributos
+ * y descripción.
+ * 
+ * @param {Object} personaje - El objeto del personaje actual
  */
-function mostrarPersonaje() {
-    // Imagen del personaje
-    imgPersonaje.src = personaje.imagen
-
-    // Atributos del personaje
-    const atributos = ["ataque", "esquiva", "velocidad", "vida", "accion"]
+function mostrarPersonaje(personaje) {
+    // Establece la imagen del personaje basado en la propiedad personaje.imagen
+    imgPersonaje.src = personaje.imagen;
+    // Recorre las claves de atributo definidas y actualiza los elementos de la UI
+    const atributos = ["ataque", "esquiva", "velocidad", "vida", "accion"];
     atributos.forEach(key => {
-        document.getElementById(`${key}Indicador`).textContent = personaje[key]
-    })
-
-    // Descripcion del personaje
-    consolaPersonajeTxt(personaje.descripcion)
+        document.getElementById(`${key}Indicador`).textContent = personaje[key];
+    });
+    // Muestra la descripción del personaje en la consola
+    consolaPersonajeTxt(personaje.descripcion);
 }
 
 // TODO: Completar
