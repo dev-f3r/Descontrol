@@ -12,8 +12,6 @@ function mostrarPersonaje() {
     atributos.forEach(key => {
         document.getElementById(`${key}Indicador`).textContent = personaje[key];
     });
-    // Muestra la descripción del personaje en la consola
-    consolaPersonajeTxt(personaje.descripcion);
     // Establece la imagen del personaje basado en la propiedad personaje.imagen
     imgPersonaje.src = personaje.imagen;
 }
@@ -30,10 +28,27 @@ function cambiarPersonaje(nombre) {
 }
 
 // TODO: Funciones para editar la vida del personaje
+/**
+ * Modifica la vida del personaje actual sumando o restando 1 punto
+ * @param {string} accion - "mas" para sumar vida, "menos" para restar vida
+ */
+function masMenosVida(accion) {
+    if (accion == "mas") {
+        if (personaje.vida < 18) personaje.vida += 1
+    } else {
+        if (personaje.vida >= 1) personaje.vida -= 1
+    }
+    mostrarPersonaje()
+    consolaPersonajeTxt(`Vida: ${personaje.vida}`)
+}
 
+
+/**
+ * Muestra la descripcion de un atributo del personaje
+ * @param {string} nombre - nombre del atributo
+ */
 function descripcionAtributo(nombre) {
-    if (personaje) consolaPersonajeTxt(`${capitalizarPrimeraLetra(nombre)}: ${personaje[nombre]}`)
-    else consolaPersonajeTxt("No hay personaje actual")
+    consolaPersonajeTxt(`${capitalizarPrimeraLetra(nombre)}: ${personaje[nombre]}`)
 }
 
 // * Identificadores de cada personaje del menu correspondiente
@@ -56,10 +71,20 @@ idBtnPersonaje.forEach(id => {
 })
 
 // * Atributos
+// Itera sobre los identificadores de los botones de atributos
 const idBtnAtributo = ["ataque", "esquiva", "velocidad", "vida", "accion"]
+// Agrega un manejador de eventos a cada botón de atributo
 idBtnAtributo.forEach(id => {
+    // Captura el click del botón de atributo
     document.getElementById(`${id}Btn`).addEventListener('click', () => {
-        //? Agregar descripcion del atributo
-        if (id !== "vida") descripcionAtributo(id)
+        // Si hay un personaje seleccionado
+        if (personaje) {
+            // Si el atributo no es vida, muestra su descripción  
+            if (id !== "vida") descripcionAtributo(id)
+            // Si el atributo es vida, muestra los botones más/menos
+            else mostrarBtnMasMenos()
+        }
+        // Si no hay personaje seleccionado, muestra mensaje
+        else consolaPersonajeTxt("No hay personaje actual")
     })
 })

@@ -9,6 +9,16 @@ let esBtnMostrarModalPersonaje = false
 // ? Indica si se estan mostrando los botones mas y menos
 let esBtnMasMenos = false
 
+function mostrarBtnMasMenos() {
+    if (esBtnMasMenos) {
+        esBtnMasMenos = false
+        btnMasMenos.style.display = "none"
+    } else {
+        esBtnMasMenos = true
+        btnMasMenos.style.display = "flex"
+    }
+}
+
 { // * Triggers
     // ? Captura el click del boton de personaje
     personajeBtn.addEventListener('click', () => {
@@ -19,6 +29,7 @@ let esBtnMasMenos = false
         // Hace visible el boton para cambio de personajes
         btnMostrarModalPersonaje.style.display = "flex"
     })
+
     // ? Captura el click del boton para cerrar el modal de personajes
     cerrarModal.addEventListener('click', () => {
         // Oculta el modal de personajes
@@ -47,6 +58,16 @@ let esBtnMasMenos = false
         consolaPersonajeTxt("CONSOLA")
         // Oculta el boton del menu de personajes
         btnMostrarModalPersonaje.style.display = "none"
+    })
+
+    // ? Captura el click de los botones mas y menos
+    masBtn.addEventListener('click', () => {
+        // Aumenta la vida actual del personaje
+        masMenosVida("mas")
+    })
+    menosBtn.addEventListener('click', () => {
+        // Disminuye la vida actual del personaje
+        masMenosVida("menos")
     })
 }
 
