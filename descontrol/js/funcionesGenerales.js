@@ -6,6 +6,8 @@ let carta = null
 let esModalAvatar = false
 // ? Indica si el boton para mostrar el modal esta activado o no
 let esBtnMostrarModalPersonaje = false
+// ? Indica si se estan mostrando los botones mas y menos
+let esBtnMasMenos = false
 
 { // * Triggers
     // ? Captura el click del boton de personaje
@@ -55,5 +57,14 @@ let esBtnMostrarModalPersonaje = false
      */
     function consolaPersonajeTxt(txt) {
         textoConsolaPersonaje.textContent = txt
+    }
+
+    /**
+     * Capitaliza la primera letra de una cadena
+     * @param {string} palabra - La palabra a capitalizar
+     * @returns {string} La palabra con la primera letra en mayúscula
+     */
+    function capitalizarPrimeraLetra(palabra) {
+        return palabra.charAt(0).toUpperCase() + palabra.slice(1)
     }
 }
