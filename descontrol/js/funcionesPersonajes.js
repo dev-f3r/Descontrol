@@ -31,6 +31,11 @@ function cambiarPersonaje(nombre) {
 
 // TODO: Funciones para editar la vida del personaje
 
+function descripcionAtributo(nombre) {
+    if (personaje) consolaPersonajeTxt(`${capitalizarPrimeraLetra(nombre)}: ${personaje[nombre]}`)
+    else consolaPersonajeTxt("No hay personaje actual")
+}
+
 // * Identificadores de cada personaje del menu correspondiente
 const idBtnPersonaje = Object.keys(personajesDict)
 // Recorre cada identificador y les agrega un evento
@@ -47,5 +52,14 @@ idBtnPersonaje.forEach(id => {
         textoConsolaPersonaje.click()
         // Muestra la descripcion del personaje
         consolaPersonajeTxt(personaje.descripcion)
+    })
+})
+
+// * Atributos
+const idBtnAtributo = ["ataque", "esquiva", "velocidad", "vida", "accion"]
+idBtnAtributo.forEach(id => {
+    document.getElementById(`${id}Btn`).addEventListener('click', () => {
+        //? Agregar descripcion del atributo
+        if (id !== "vida") descripcionAtributo(id)
     })
 })
