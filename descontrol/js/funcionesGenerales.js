@@ -9,11 +9,17 @@ let esBtnMostrarModalPersonaje = false
 // ? Indica si se estan mostrando los botones mas y menos
 let esBtnMasMenos = false
 
+/**
+ * ? Mestra u oculta los botones + y -
+ */
 function mostrarBtnMasMenos() {
+    // Verifica si los botones están visibles
     if (esBtnMasMenos) {
+        // Oculta los botones
         esBtnMasMenos = false
         btnMasMenos.style.display = "none"
     } else {
+        // Hace visibles los botones
         esBtnMasMenos = true
         btnMasMenos.style.display = "flex"
     }
@@ -53,7 +59,7 @@ function mostrarBtnMasMenos() {
     })
 
     // ? Captura el click de la consola de personaje
-    textoConsolaPersonaje.addEventListener('click', () => {
+    consolaPersonaje.addEventListener('click', () => {
         // Limpia el texto
         consolaPersonajeTxt("CONSOLA")
         // Oculta el boton del menu de personajes
@@ -73,7 +79,7 @@ function mostrarBtnMasMenos() {
 
 { // * Helpers
     /**
-     * ? Cambia el contenido de la consola de personajes
+     * Cambia el contenido de la consola de personajes
      * @param {string} txt - el texto nuevo
      */
     function consolaPersonajeTxt(txt) {
