@@ -64,6 +64,7 @@ function mostrarBtnMasMenos() {
         consolaPersonajeTxt("CONSOLA")
         // Oculta el boton del menu de personajes
         btnMostrarModalPersonaje.style.display = "none"
+        if(esBtnMasMenos) mostrarBtnMasMenos()
     })
 
     // ? Captura el click de los botones mas y menos

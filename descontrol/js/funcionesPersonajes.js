@@ -1,19 +1,15 @@
-// ? Guarda el indice del personaje actual
-let indicePersonaje = null
-
 /**
  * ? Muestra los datos del personaje actual incluyendo imagen, atributos
  * y descripción.
- * 
  */
 function mostrarPersonaje() {
     // Recorre las claves de atributo definidas y actualiza los elementos de la UI
-    const atributos = ["ataque", "esquiva", "velocidad", "vida", "accion"];
+    const atributos = ["ataque", "esquiva", "velocidad", "vida", "accion"]
     atributos.forEach(key => {
-        document.getElementById(`${key}Indicador`).textContent = personaje[key];
-    });
+        document.getElementById(`${key}Indicador`).textContent = personaje[key]
+    })
     // Establece la imagen del personaje basado en la propiedad personaje.imagen
-    imgPersonaje.src = personaje.imagen;
+    imgPersonaje.src = personaje.imagen
 }
 
 /**
@@ -80,9 +76,15 @@ idBtnAtributo.forEach(id => {
         // Si hay un personaje seleccionado
         if (personaje) {
             // Si el atributo no es vida, muestra su descripción  
-            if (id !== "vida") descripcionAtributo(id)
+            if (id !== "vida") {
+                if (esBtnMasMenos) mostrarBtnMasMenos() // Si los botones + y - se estan mostrando los oculta
+                descripcionAtributo(id)
+            }
             // Si el atributo es vida, muestra los botones más/menos
-            else mostrarBtnMasMenos()
+            else {
+                consolaPersonajeTxt(`Vida: ${personaje.vida}`)
+                mostrarBtnMasMenos()
+            }
         }
         // Si no hay personaje seleccionado, muestra mensaje
         else consolaPersonajeTxt("No hay personaje actual")
