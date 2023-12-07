@@ -16,7 +16,7 @@ const personajesDict = {
         ataque: 6,
         esquiva: 5,
         velocidad: 4,
-        vida: 11,
+        vida: 18,
         accion: 2,
     },
     "test2": {
@@ -26,7 +26,7 @@ const personajesDict = {
         ataque: 5,
         esquiva: 4,
         velocidad: 3,
-        vida: 11,
+        vida: 18,
         accion: 1,
     },
     "test3": {
@@ -36,7 +36,7 @@ const personajesDict = {
         ataque: 4,
         esquiva: 3,
         velocidad: 2,
-        vida: 11,
+        vida: 18,
         accion: 6,
     },
 
@@ -47,7 +47,7 @@ const personajesDict = {
         ataque: 3,
         esquiva: 2,
         velocidad: 1,
-        vida: 11,
+        vida: 18,
         accion: 5,
     },
 
@@ -58,7 +58,7 @@ const personajesDict = {
         ataque: 2,
         esquiva: 1,
         velocidad: 6,
-        vida: 11,
+        vida: 18,
         accion: 4,
     }
 }
