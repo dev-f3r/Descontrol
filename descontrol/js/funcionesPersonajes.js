@@ -58,7 +58,7 @@ idBtnPersonaje.forEach(id => {
         // Lo muestra
         mostrarPersonaje()
         // Cierra el modal
-        cerrarModal.click()
+        cerrarModalPersonaje.click()
         // Limpia la consola
         textoConsolaPersonaje.click()
         // Muestra la descripcion del personaje

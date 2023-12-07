@@ -4,6 +4,8 @@ let personaje = null
 let carta = null
 // ? Indica si el modal de personajes esta activado o no
 let esModalAvatar = false
+// ? Indica si se esta mostrando el modal de cambio de estado
+let esModalCambioEstado = false
 // ? Indica si el boton para mostrar el modal esta activado o no
 let esBtnMostrarModalPersonaje = false
 // ? Indica si se estan mostrando los botones mas y menos
@@ -35,13 +37,31 @@ function mostrarBtnMasMenos() {
         // Hace visible el boton para cambio de personajes
         btnMostrarModalPersonaje.style.display = "flex"
     })
-
     // ? Captura el click del boton para cerrar el modal de personajes
-    cerrarModal.addEventListener('click', () => {
+    cerrarModalPersonaje.addEventListener('click', () => {
         // Oculta el modal de personajes
         modalAvatares.style.display = "none"
         // Actualiza la bandera
         esModalAvatar = false
+    })
+
+    // ? Captura el click del boton para cambio de estado
+    estadoBtn.addEventListener('click', () => {
+        if (esModalCambioEstado) {
+            // Oculta el modal de cambio de estado
+            modalEstados.style.display = "none"
+            esModalCambioEstado = false
+        } else {
+            // Muestra el modal de cambio de estado
+            modalEstados.style.display = "grid"
+            esModalCambioEstado = true
+        }
+    })
+
+    cerrarModalEstados.addEventListener('click', () => {
+        // Oculta el modal de cambio de estado
+        modalEstados.style.display = "none"
+        esModalCambioEstado = false
     })
 
     // ? Captura el click del boton para mostrar el modal de personajes
@@ -64,7 +84,12 @@ function mostrarBtnMasMenos() {
         consolaPersonajeTxt("CONSOLA")
         // Oculta el boton del menu de personajes
         btnMostrarModalPersonaje.style.display = "none"
-        if(esBtnMasMenos) mostrarBtnMasMenos()
+        // Oculta los botones + y -
+        if (esBtnMasMenos) mostrarBtnMasMenos()
+        // Cierra el modal de personajes si está abierto
+        if (esModalAvatar) cerrarModalPersonaje.click()
+        // Cierra el modal de estados si está abierto  
+        if (esModalCambioEstado) cerrarModalEstados.click()
     })
 
     // ? Captura el click de los botones mas y menos

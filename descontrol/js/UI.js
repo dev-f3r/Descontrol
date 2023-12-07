@@ -4,6 +4,6 @@ for (const pj in personajesDict) {
     // TODO: Arreglar el src de la imagen
     let nuevoPj = `<div class="item-modal" id="${pj}"><img src="img/vida.png" class="modal-img"></div>`
 
-    // Lo insertamos despues del boton de cerrarModal
-    cerrarModal.insertAdjacentHTML('afterend', nuevoPj)
+    // Lo insertamos despues del boton de cerrarModalPersonaje
+    cerrarModalPersonaje.insertAdjacentHTML('afterend', nuevoPj)
 }
