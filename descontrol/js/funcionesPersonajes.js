@@ -80,17 +80,20 @@ const idBtnAtributo = ["ataque", "esquiva", "velocidad", "vida", "accion"]
 idBtnAtributo.forEach(id => {
     // Captura el click del botón de atributo
     document.getElementById(`${id}Btn`).addEventListener('click', () => {
+        // Limpia la consola
+        consolaPersonaje.click()
+
         // Si hay un personaje seleccionado
         if (personaje) {
             // Si el atributo no es vida, muestra su descripción  
             if (id !== "vida") {
-                if (esBtnMasMenos) mostrarBtnMasMenos() // Si los botones + y - se estan mostrando los oculta
+                if (esBtnMasMenos) mostrarOcultarBtnMasMenos() // Si los botones + y - se estan mostrando los oculta
                 descripcionAtributo(id)
             }
             // Si el atributo es vida, muestra los botones más/menos
             else {
                 consolaPersonajeTxt(`Vida: ${personaje.vida}`)
-                mostrarBtnMasMenos() // Muestra los botones apenas se activan
+                mostrarOcultarBtnMasMenos() // Muestra los botones apenas se activan
             }
         }
         // Si no hay personaje seleccionado, muestra mensaje

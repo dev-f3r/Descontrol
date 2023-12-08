@@ -2,19 +2,20 @@
 let personaje = null
 // ? Contiene la carta actual
 let carta = null
+
 // ? Indica si el modal de personajes esta activado o no
 let esModalAvatar = false
 // ? Indica si se esta mostrando el modal de cambio de estado
 let esModalCambioEstado = false
 // ? Indica si el boton para mostrar el modal esta activado o no
-let esBtnMostrarModalPersonaje = false
+let esBtnCambiar = false
 // ? Indica si se estan mostrando los botones mas y menos
 let esBtnMasMenos = false
 
 /**
  * ? Mestra u oculta los botones + y -
  */
-function mostrarBtnMasMenos() {
+function mostrarOcultarBtnMasMenos() {
     // Verifica si los botones están visibles
     if (esBtnMasMenos) {
         // Oculta los botones
@@ -27,69 +28,119 @@ function mostrarBtnMasMenos() {
     }
 }
 
-{ // * Triggers
-    // ? Captura el click del boton de personaje
-    personajeBtn.addEventListener('click', () => {
-        // Si ya hay un personaje seleccionado muestra su descripcion
-        if (personaje) consolaPersonajeTxt(personaje.descripcion)
-        // Caso contrario indica que se debe seleccionar uno
-        else consolaPersonajeTxt("Selecciona un personaje")
-        // Hace visible el boton para cambio de personajes
-        btnMostrarModalPersonaje.style.display = "flex"
-    })
-    // ? Captura el click del boton para cerrar el modal de personajes
-    cerrarModalPersonaje.addEventListener('click', () => {
-        // Oculta el modal de personajes
+/**
+ * ? Muestra u oculta el boton cambiar
+ */
+function mostrarOcultarBtnCambiar() {
+    if (esBtnCambiar) {
+        // Oculta el boton
+        esBtnCambiar = false
+        btnCambiarPersonaje.style.display = "none"
+    } else {
+        // Hace visible el boton
+        esBtnCambiar = true
+        btnCambiarPersonaje.style.display = "flex"
+    }
+}
+
+/**
+ * ? Muestra u oculta el modal de personajes
+ */
+function mostrarOcultarModalPersonajes() {
+    // Verifica si el modal esta visible
+    if (esModalAvatar) {
+        // Oculta el modal
         modalAvatares.style.display = "none"
         // Actualiza la bandera
         esModalAvatar = false
-    })
+    } else {
+        // Muestra el modal
+        modalAvatares.style.display = "grid"
+        // Actualiza la bandera
+        esModalAvatar = true
+    }
+}
 
-    // ? Captura el click del boton para cambio de estado
-    estadoBtn.addEventListener('click', () => {
-        if (esModalCambioEstado) {
-            // Oculta el modal de cambio de estado
-            modalEstados.style.display = "none"
-            esModalCambioEstado = false
-        } else {
-            // Muestra el modal de cambio de estado
-            modalEstados.style.display = "grid"
-            esModalCambioEstado = true
-        }
-    })
-
-    cerrarModalEstados.addEventListener('click', () => {
-        // Oculta el modal de cambio de estado
-        modalEstados.style.display = "none"
+/**
+ * ? Muestra u oculta el modal de estado
+ */
+function mostrarOcultarModalCambioEstado() {
+    console.log("Mostrar Ocultar Modal Cambio Estado")
+    // Verifica si el modal esta visible
+    if (esModalCambioEstado) {
+        // Oculta el modal
+        modalCambioEstado.style.display = "none"
+        // Actualiza la bandera
         esModalCambioEstado = false
-    })
+    } else {
+        // Muestra el modal
+        modalCambioEstado.style.display = "grid"
+        // Actualiza la bandera
+        esModalCambioEstado = true
+    }
+}
 
-    // ? Captura el click del boton para mostrar el modal de personajes
-    btnMostrarModalPersonaje.addEventListener('click', () => {
-        // Si el modal de personajes esta activado lo oculta y actualiza la bandera
-        if (esModalAvatar) {
+{ // * Triggers
+    { // * Modal Personajes
+        // ? Captura el click del boton de personaje
+        personajeBtn.addEventListener('click', () => {
+            // Limpia la consola
+            consolaPersonaje.click()
+
+            // Si ya hay un personaje seleccionado muestra su descripcion
+            if (personaje) consolaPersonajeTxt(personaje.descripcion)
+            // Caso contrario indica que se debe seleccionar uno
+            else consolaPersonajeTxt("Selecciona un personaje")
+
+            // Muestra el boton para cambiar personaje
+            mostrarOcultarBtnCambiar()
+        })
+
+        // ? Captura el click del boton para mostrar el modal de personajes
+        btnCambiarPersonaje.addEventListener('click', () => {
+            // Limpia la consola
+            consolaPersonaje.click()
+            // Muestra el modal de personajes
+            mostrarOcultarModalPersonajes()
+        })
+
+        // ? Captura el click del boton para cerrar el modal de personajes
+        cerrarModalPersonaje.addEventListener('click', () => {
+            // Oculta el modal de personajes
             modalAvatares.style.display = "none"
+            // Actualiza la bandera
             esModalAvatar = false
-        }
-        // Si el modal de personajes esta desactivado lo activa y actualiza la bandera
-        else {
-            modalAvatares.style.display = "grid"
-            esModalAvatar = true
-        }
-    })
+        })
+    }
+
+    { // * Modal estado
+        // ? Captura el click del boton para cambio de estado
+        estadoBtn.addEventListener('click', () => {
+            // Limpia la consola
+            consolaPersonaje.click()
+            mostrarOcultarModalCambioEstado()
+        })
+
+        cerrarModalEstados.addEventListener('click', () => {
+            // Oculta el modal de cambio de estado
+            modalCambioEstado.style.display = "none"
+            esModalCambioEstado = false
+        })
+    }
 
     // ? Captura el click de la consola de personaje
+    // ? Limpia la consola por completo
     consolaPersonaje.addEventListener('click', () => {
-        // Limpia el texto
+        // Reestablece el texto
         consolaPersonajeTxt("CONSOLA")
-        // Oculta el boton del menu de personajes
-        btnMostrarModalPersonaje.style.display = "none"
-        // Oculta los botones + y -
-        if (esBtnMasMenos) mostrarBtnMasMenos()
+        // Oculta el boton para cambio de personaje si esta activo
+        if (esBtnCambiar) mostrarOcultarBtnCambiar()
+        // Oculta los botones + y - si estan activos
+        if (esBtnMasMenos) mostrarOcultarBtnMasMenos()
         // Cierra el modal de personajes si está abierto
-        if (esModalAvatar) cerrarModalPersonaje.click()
+        if (esModalAvatar) mostrarOcultarModalPersonajes()
         // Cierra el modal de estados si está abierto  
-        if (esModalCambioEstado) cerrarModalEstados.click()
+        if (esModalCambioEstado) mostrarOcultarModalCambioEstado()
     })
 
     // ? Captura el click de los botones mas y menos

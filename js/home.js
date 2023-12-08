@@ -22,11 +22,11 @@ jugarBtn.addEventListener('click', function () {
 
     if (juego == "meeple") {
 
-        window.location = "../meeple/index.html"
+        window.location = "./meeple/index.html"
 
     } else {
 
-        window.location = "../descontrol/index.html"
+        window.location = "./descontrol/index.html"
     }
 
 })
