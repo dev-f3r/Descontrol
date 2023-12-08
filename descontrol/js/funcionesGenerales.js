@@ -1,16 +1,19 @@
-// ? Contiene el personaje actual
+// ? Contiene la información del personaje seleccionado actualmente
 let personaje = null
-// ? Contiene la carta actual
+// ? Contiene la información del estado del personaje
+let estado = null
+// ? Contiene la carta seleccionada actualmente
 let carta = null
 
-// ? Indica si el modal de personajes esta activado o no
+// ? Indica si el modal de selección de personajes está visible
 let esModalAvatar = false
-// ? Indica si se esta mostrando el modal de cambio de estado
+// ? Indica si el modal de cambio de estado está visible  
 let esModalCambioEstado = false
-// ? Indica si el boton para mostrar el modal esta activado o no
+// ? Indica si el botón para abrir el modal de personajes está visible
 let esBtnCambiar = false
-// ? Indica si se estan mostrando los botones mas y menos
+// ? Indica si los botones para modificar vida están visibles
 let esBtnMasMenos = false
+
 
 /**
  * ? Mestra u oculta los botones + y -

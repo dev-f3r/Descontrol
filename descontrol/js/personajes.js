@@ -62,3 +62,45 @@ const personajesDict = {
         accion: 4,
     }
 }
+
+const estadosDict = {
+    ebrio: {
+        general: {
+            nombre: "ebrio",
+            imagen: "img/ebrio.png",
+        },
+        atributos: {
+            ataque: 0,
+            esquiva: -2,
+            velocidad: -2,
+            vida: -2,
+            accion: 2,
+        },
+    },
+    lucido: {
+        general: {
+            nombre: "lucido",
+            imagen: "img/lucido.png",
+        },
+        atributos: {
+            ataque: 0,
+            esquiva: 0,
+            velocidad: 0,
+            vida: 0,
+            accion: 0,
+        },
+    },
+    extaciado: {
+        general: {
+            nombre: "extaciado",
+            imagen: "img/extaciado.png",
+        },
+        atributos: {
+            ataque: 2,
+            esquiva: 2,
+            velocidad: 2,
+            vida: 0,
+            accion: -2,
+        },
+    }
+}

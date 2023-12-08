@@ -17,6 +17,61 @@ function mostrarPersonaje() {
 }
 
 /**
+ * ? Restaura los valores originales del personaje actual
+ */
+function reestaurarPersonaje() {
+    // Asigna las propiedades del personaje indicado
+    // tomándolas del diccionario de personajes
+    Object.assign(personaje, personajesDict[personaje.nombre])
+}
+
+/**
+ * ? Muestra la imagen correspondiente al estado actual del personaje
+ */
+function mostrarEstado() {
+    // Establece como fuente de la imagen de estado
+    // el atributo imagen del estado general  
+    imgEstado.src = estado.general.imagen
+}
+
+/**
+ * ? Cambia el estado actual del personaje
+ * @param {string} nombre - nombre del nuevo estado
+ */
+function cambiarEstado(nombre) {
+    if (!estado) estado = {}
+    // Asigna las propiedades del estado indicado
+    // tomándolas del diccionario de estados
+    Object.assign(estado, estadosDict[nombre])
+}
+
+/**
+ *  ? Modifica los atributos del personaje actual
+ * basado en su estado y en efectos de cartas
+ */
+function modificarAtributosPersonaje() {
+    // Restaura los valores originales del personaje
+    reestaurarPersonaje()
+
+    // Si hay un estado activo
+    if (estado) {
+        // Recorre los atributos del estado
+        for (const atributo in estado.atributos) {
+            // Verifica que no sea un numero negativo
+            if ((personaje[atributo] + estado.atributos[atributo]) < 0) {
+                personaje[atributo] = 0
+            } else {
+                // Suma el modificador del estado
+                personaje[atributo] += estado.atributos[atributo]
+            }
+        }
+    }
+
+    // TODO: Aplicar efectos de cartas
+}
+
+
+/**
  * ? Cambia el personaje actual por otro
  * @param {string} nombre - nombre del nuevo personaje
  */
@@ -25,6 +80,10 @@ function cambiarPersonaje(nombre) {
     if (!personaje) personaje = {}
     // Asigna las propiedades del nuevo personaje 
     Object.assign(personaje, personajesDict[nombre])
+
+    // Lucido es el estado por defecto
+    cambiarEstado("lucido")
+    mostrarEstado()
 }
 
 /**
@@ -54,49 +113,83 @@ function descripcionAtributo(nombre) {
     consolaPersonajeTxt(`${capitalizarPrimeraLetra(nombre)}: ${personaje[nombre]}`)
 }
 
-// * Identificadores de cada personaje del menu correspondiente
-const idBtnPersonaje = Object.keys(personajesDict)
-// Recorre cada identificador y les agrega un evento
-idBtnPersonaje.forEach(id => {
-    // ? Captura el click de un personaje a elegir
-    document.getElementById(id).addEventListener('click', () => {
-        // Cambia el personaje actual
-        cambiarPersonaje(id)
-        // Lo muestra
-        mostrarPersonaje()
-        // Cierra el modal
-        cerrarModalPersonaje.click()
-        // Limpia la consola
-        textoConsolaPersonaje.click()
-        // Muestra la descripcion del personaje
-        consolaPersonajeTxt(personaje.descripcion)
-    })
-})
 
-// * Atributos
-// Itera sobre los identificadores de los botones de atributos
-const idBtnAtributo = ["ataque", "esquiva", "velocidad", "vida", "accion"]
-// Agrega un manejador de eventos a cada botón de atributo
-idBtnAtributo.forEach(id => {
-    // Captura el click del botón de atributo
-    document.getElementById(`${id}Btn`).addEventListener('click', () => {
-        // Limpia la consola
-        consolaPersonaje.click()
 
-        // Si hay un personaje seleccionado
-        if (personaje) {
-            // Si el atributo no es vida, muestra su descripción  
-            if (id !== "vida") {
-                if (esBtnMasMenos) mostrarOcultarBtnMasMenos() // Si los botones + y - se estan mostrando los oculta
-                descripcionAtributo(id)
-            }
-            // Si el atributo es vida, muestra los botones más/menos
-            else {
-                consolaPersonajeTxt(`Vida: ${personaje.vida}`)
-                mostrarOcultarBtnMasMenos() // Muestra los botones apenas se activan
-            }
-        }
-        // Si no hay personaje seleccionado, muestra mensaje
-        else consolaPersonajeTxt("No hay personaje actual")
+{ // * Seleccion de personajes
+    // Itera por cada identificador de personaje en el diccionario
+    const idBtnPersonaje = Object.keys(personajesDict)
+
+    // Recorre cada identificador y agrega un manejador de eventos
+    idBtnPersonaje.forEach(id => {
+        // Captura el click en el botón de un personaje
+        document.getElementById(id).addEventListener('click', () => {
+            // Cambia el personaje actual por el seleccionado
+            cambiarPersonaje(id)
+            // Muestra los datos del nuevo personaje
+            mostrarPersonaje()
+            // Cierra el modal de selección de personajes
+            cerrarModalPersonaje.click()
+            // Limpia el texto de la consola
+            textoConsolaPersonaje.click()
+            // Muestra la descripción del nuevo personaje
+            consolaPersonajeTxt(personaje.descripcion)
+        })
     })
-})
+}
+
+{ // * Atributos
+    // Itera sobre los identificadores de los botones de atributos
+    const idBtnAtributo = ["ataque", "esquiva", "velocidad", "vida", "accion"]
+    // Agrega un manejador de eventos a cada botón de atributo
+    idBtnAtributo.forEach(id => {
+        // Captura el click del botón de atributo
+        document.getElementById(`${id}Btn`).addEventListener('click', () => {
+            // Limpia la consola
+            consolaPersonaje.click()
+
+            // Si hay un personaje seleccionado
+            if (personaje) {
+                // Si el atributo no es vida, muestra su descripción  
+                if (id !== "vida") {
+                    if (esBtnMasMenos) mostrarOcultarBtnMasMenos() // Si los botones + y - se estan mostrando los oculta
+                    descripcionAtributo(id)
+                }
+                // Si el atributo es vida, muestra los botones más/menos
+                else {
+                    consolaPersonajeTxt(`Vida: ${personaje.vida}`)
+                    mostrarOcultarBtnMasMenos() // Muestra los botones apenas se activan
+                }
+            }
+            // Si no hay personaje seleccionado, muestra mensaje
+            else consolaPersonajeTxt("No hay personaje actual")
+        })
+    })
+}
+
+{ // * Seleccion de estado
+
+    // Itera sobre los identificadores de los botones de estado
+    const idBtnEstado = ["ebrio", "lucido", "extaciado"]
+    idBtnEstado.forEach(estado => {
+        // Agrega un manejador de eventos a cada botón de estado
+        document.getElementById(estado).addEventListener('click', () => {
+            // Limpia la consola de personaje
+            consolaPersonaje.click()
+
+            if (personaje) {
+                // Cambia el estado del personaje
+                cambiarEstado(estado)
+                // Modifica los atributos según el estado
+                modificarAtributosPersonaje()
+
+                // Muestra el nuevo estado
+                mostrarEstado()
+                // Actualiza los datos del personaje
+                mostrarPersonaje()
+            } else {
+                // Muestra mensaje si no hay personaje
+                consolaPersonajeTxt("No hay personaje actual")
+            }
+        })
+    })
+}
