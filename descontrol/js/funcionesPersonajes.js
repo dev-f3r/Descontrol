@@ -31,7 +31,7 @@ function cambiarPersonaje(nombre) {
  * Modifica la vida del personaje actual sumando o restando 1 punto
  * @param {string} accion - "mas" para sumar vida, "menos" para restar vida
  */
-function masMenosVida(accion) {
+function modificarVida(accion) {
     // Verifica si se debe sumar o restar vida
     if (accion == "mas") {
         // Suma vida si está por debajo del máximo

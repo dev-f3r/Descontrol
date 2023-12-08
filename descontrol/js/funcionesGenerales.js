@@ -65,7 +65,6 @@ function mostrarOcultarModalPersonajes() {
  * ? Muestra u oculta el modal de estado
  */
 function mostrarOcultarModalCambioEstado() {
-    console.log("Mostrar Ocultar Modal Cambio Estado")
     // Verifica si el modal esta visible
     if (esModalCambioEstado) {
         // Oculta el modal
@@ -143,15 +142,37 @@ function mostrarOcultarModalCambioEstado() {
         if (esModalCambioEstado) mostrarOcultarModalCambioEstado()
     })
 
-    // ? Captura el click de los botones mas y menos
-    masBtn.addEventListener('click', () => {
-        // Aumenta la vida actual del personaje
-        masMenosVida("mas")
-    })
-    menosBtn.addEventListener('click', () => {
-        // Disminuye la vida actual del personaje
-        masMenosVida("menos")
-    })
+    { // * Botones + y -
+        // Timer que se ejecuta mientras se mantiene presionado el boton
+        let timerPresionado
+        // Identificadores de los botones de mas y menos vida
+        const idsBotones = ["mas", "menos"]
+
+        // Recorre los identificadores
+        idsBotones.forEach(idBoton => {
+            // Obtiene la referencia al boton 
+            const boton = document.getElementById(`${idBoton}Btn`)
+
+            // Agrega un manejador al evento click
+            boton.addEventListener('click', () => {
+                // Ejecuta la funcion para sumar o restar vida
+                modificarVida(idBoton)
+            })
+            // Agrega un manejador al evento mousedown 
+            boton.addEventListener('mousedown', () => {
+                // Inicia el timer de ejecucion mientras se mantiene presionado
+                timerPresionado = setInterval(() => {
+                    // Ejecuta la funcion para sumar o restar vida
+                    modificarVida(idBoton)
+                }, 100)
+            })
+            // Agrega un manejador al evento mouseup
+            boton.addEventListener('mouseup', () => {
+                // Detiene el timer
+                clearInterval(timerPresionado)
+            })
+        })
+    }
 }
 
 { // * Helpers
