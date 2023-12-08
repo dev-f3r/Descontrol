@@ -3,11 +3,15 @@
  * y descripción.
  */
 function mostrarPersonaje() {
-    // Recorre las claves de atributo definidas y actualiza los elementos de la UI
     const atributos = ["ataque", "esquiva", "velocidad", "vida", "accion"]
+    // Recorre las claves de atributo definidas
+    // y actualiza los elementos de la UI
     atributos.forEach(key => {
+        // Establece el valor del indicador 
+        // al valor del atributo del personaje
         document.getElementById(`${key}Indicador`).textContent = personaje[key]
     })
+
     // Establece la imagen del personaje basado en la propiedad personaje.imagen
     imgPersonaje.src = personaje.imagen
 }
@@ -23,21 +27,24 @@ function cambiarPersonaje(nombre) {
     Object.assign(personaje, personajesDict[nombre])
 }
 
-// TODO: Funciones para editar la vida del personaje
 /**
  * Modifica la vida del personaje actual sumando o restando 1 punto
  * @param {string} accion - "mas" para sumar vida, "menos" para restar vida
  */
 function masMenosVida(accion) {
+    // Verifica si se debe sumar o restar vida
     if (accion == "mas") {
+        // Suma vida si está por debajo del máximo
         if (personaje.vida < 18) personaje.vida += 1
     } else {
+        // Resta vida si está por encima del mínimo
         if (personaje.vida >= 1) personaje.vida -= 1
     }
+    // Actualiza la UI
     mostrarPersonaje()
+    // Muestra el nuevo valor de vida
     consolaPersonajeTxt(`Vida: ${personaje.vida}`)
 }
-
 
 /**
  * Muestra la descripcion de un atributo del personaje
@@ -83,7 +90,7 @@ idBtnAtributo.forEach(id => {
             // Si el atributo es vida, muestra los botones más/menos
             else {
                 consolaPersonajeTxt(`Vida: ${personaje.vida}`)
-                mostrarBtnMasMenos()
+                mostrarBtnMasMenos() // Muestra los botones apenas se activan
             }
         }
         // Si no hay personaje seleccionado, muestra mensaje
