@@ -46,8 +46,8 @@ function cambiarEstado(nombre) {
 }
 
 /**
- *  ? Modifica los atributos del personaje actual
- *  ? basado en su estado y en efectos de cartas
+ * ? Modifica los atributos del personaje actual
+ * ? basado en su estado y en efectos de cartas
  */
 function modificarAtributosPersonaje() {
     // Restaura los valores originales del personaje
@@ -106,7 +106,7 @@ function modificarVida(accion) {
 }
 
 /**
- * Muestra la descripcion de un atributo del personaje
+ * ? Muestra la descripcion de un atributo del personaje
  * @param {string} nombre - nombre del atributo
  */
 function descripcionAtributo(nombre) {

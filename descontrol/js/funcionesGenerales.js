@@ -197,6 +197,15 @@ function mostrarOcultarModalCambioEstado() {
             })
         })
     }
+
+    btnLevantarCarta.addEventListener('click', () => {
+        console.log("levantar carta")
+        if (personaje) {
+            levantarCarta()
+            mostrarCarta()
+        }
+        else consolaPersonajeTxt("Primero selecciona un personaje")
+    })
 }
 
 { // * Helpers
@@ -206,6 +215,14 @@ function mostrarOcultarModalCambioEstado() {
      */
     function consolaPersonajeTxt(txt) {
         textoConsolaPersonaje.textContent = txt
+    }
+
+    /**
+     * ? Cambia el contenido de la consola de cartas
+     * @param {string} txt - el texto nuevo
+     */
+    function consolaCartaTxt(txt) {
+        textoConsolaCarta.textContent = txt
     }
 
     /**
