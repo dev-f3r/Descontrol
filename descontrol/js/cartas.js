@@ -1,3 +1,7 @@
+/**
+ * ? Contiene informacion sobre las cartas
+ * @type {object}
+ */
 const cartasDict = {
     normales: {
         "carta normal 1": {
@@ -37,7 +41,18 @@ const cartasDict = {
     }
 }
 
-
+/**
+ * ? Contiene el nombre de las cartas normales
+ * @const {array}
+ */
 const listaCartasNormales = Object.keys(cartasDict.normales)
+/**
+ * ? Contiene el nombre de las cartas especiales
+ * @const {array}
+ */
 const listaCartasEspeciales = Object.keys(cartasDict.especiales)
+/**
+ * ? Contiene el nombre de las cartas epicas
+ * @const {array}
+ */
 const listaCartasEpicas = Object.keys(cartasDict.epicas)
