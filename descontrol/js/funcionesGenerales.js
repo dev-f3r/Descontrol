@@ -13,6 +13,11 @@ let estado = null
  * @var {object} - carta
  */
 let carta = null
+/**
+ * ? Contiene el nombre del atributo seleccionado actualmente
+ * @var {string}
+ */
+let atributo = null
 
 /**
  * ? Indica si el modal de selección de personajes está visible
@@ -198,6 +203,8 @@ function mostrarOcultarModalCambioEstado() {
         })
     }
 
+    // ? Captura el click del boton para levantar una carta
+    // ? Se levanta una carta aleatoria
     btnLevantarCarta.addEventListener('click', () => {
         // Si hay un personaje
         if (personaje) {
@@ -213,6 +220,16 @@ function mostrarOcultarModalCambioEstado() {
         // Si no hay un personaje se pide uno
         else consolaPersonajeTxt("Primero selecciona un personaje")
     })
+
+    btnAtacar.addEventListener('click', () => {
+        // Si hay un personaje
+        if (personaje) {
+            if(atributo) atacar(atributo)
+            else consolaPersonajeTxt("Selecciona entre ataque, esquiva o velocidad")
+        }
+        // Si no hay un personaje se pide uno
+        else consolaPersonajeTxt("Primero selecciona un personaje")
+    })
 }
 
 { // * Helpers
@@ -221,7 +238,7 @@ function mostrarOcultarModalCambioEstado() {
      * @param {string} txt - el texto nuevo
      */
     function consolaPersonajeTxt(txt) {
-        textoConsolaPersonaje.textContent = txt
+        textoConsolaPersonaje.innerHTML = txt
     }
 
     /**
@@ -229,7 +246,7 @@ function mostrarOcultarModalCambioEstado() {
      * @param {string} txt - el texto nuevo
      */
     function consolaCartaTxt(txt) {
-        textoConsolaCarta.textContent = txt
+        textoConsolaCarta.innerHTML = txt
     }
 
     /**

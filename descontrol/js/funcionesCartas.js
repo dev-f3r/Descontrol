@@ -13,7 +13,7 @@ function mostrarCarta() {
  */
 function levantarCarta() {
     // Genera un numero aleatorio entre 1 y 9 
-    let dado = Math.floor(Math.random() * 9) + 1
+    let dado = Math.floor(Math.random() * 6) + 1
     // Suma la acción del personaje al valor del dado
     dado += personaje.accion
 
