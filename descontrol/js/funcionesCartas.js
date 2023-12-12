@@ -14,8 +14,6 @@ function mostrarCarta() {
 function levantarCarta() {
     // Genera un numero aleatorio entre 1 y 9 
     let dado = Math.floor(Math.random() * 9) + 1
-    // Muestra el resultado de sumar el dado y la acción del personaje
-    console.log(`${dado} + ${personaje.accion} = ${dado + personaje.accion}`)
     // Suma la acción del personaje al valor del dado
     dado += personaje.accion
 

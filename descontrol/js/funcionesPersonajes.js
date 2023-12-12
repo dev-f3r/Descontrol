@@ -50,6 +50,8 @@ function cambiarEstado(nombre) {
  * ? basado en su estado y en efectos de cartas
  */
 function modificarAtributosPersonaje() {
+    const listaAtributos = ["ataque", "esquiva", "velocidad", "vida", "accion"]
+
     // Restaura los valores originales del personaje
     reestaurarPersonaje()
 
@@ -57,7 +59,7 @@ function modificarAtributosPersonaje() {
     if (estado) {
         // Recorre los atributos del estado
         for (const atributo in estado.atributos) {
-            // Verifica que no sea un numero negativo
+            // No se admiten numeros negativos
             if ((personaje[atributo] + estado.atributos[atributo]) < 0) {
                 personaje[atributo] = 0
             } else {
@@ -67,7 +69,19 @@ function modificarAtributosPersonaje() {
         }
     }
 
-    // TODO: Aplicar efectos de cartas
+    // Si hay una carta
+    if (carta) {
+        // Recorre la lista de atributos
+        listaAtributos.forEach(atributo => {
+            // Verifica que el valor no sea negativo
+            if ((personaje[atributo] + carta[atributo]) < 0) {
+                personaje[atributo] = 0
+            } else {
+                // Suma el modificador de la carta
+                personaje[atributo] += carta[atributo]
+            }
+        })
+    }
 }
 
 
@@ -161,7 +175,7 @@ function descripcionAtributo(nombre) {
                 }
             }
             // Si no hay personaje seleccionado, muestra mensaje
-            else consolaPersonajeTxt("No hay personaje actual")
+            else consolaPersonajeTxt("Primero selecciona un personaje")
         })
     })
 }
@@ -188,7 +202,7 @@ function descripcionAtributo(nombre) {
                 mostrarPersonaje()
             } else {
                 // Muestra mensaje si no hay personaje
-                consolaPersonajeTxt("No hay personaje actual")
+                consolaPersonajeTxt("Primero selecciona un personaje")
             }
         })
     })

@@ -4,11 +4,11 @@ const cartasDict = {
             nombre: "carta normal 1",
             descripcion: "carta normal que daña un poco",
             imagen: "img/new.png",
-            daño: 2,
-            esquiva: 2,
-            velocidad: 2,
-            vida: -1,
-            accion: 2,
+            ataque: 1,
+            esquiva: 1,
+            velocidad: 1,
+            vida: 0,
+            accion: 1,
         }
     },
     especiales: {
@@ -16,10 +16,10 @@ const cartasDict = {
             nombre: "carta especial 1",
             descripcion: "carta especial que daña y aumenta velocidad",
             imagen: "img/new.png",
-            daño: 2,
+            ataque: 2,
             esquiva: 2,
             velocidad: 2,
-            vida: -1,
+            vida: 0,
             accion: 2,
         }
     },
@@ -28,11 +28,11 @@ const cartasDict = {
             nombre: "carta epica 1",
             descripcion: "carta epica que daña mucho y quita vida",
             imagen: "img/new.png",
-            daño: 2,
-            esquiva: 2,
-            velocidad: 2,
-            vida: -1,
-            accion: 2,
+            ataque: 3,
+            esquiva: 3,
+            velocidad: 3,
+            vida: 0,
+            accion: 3,
         }
     }
 }

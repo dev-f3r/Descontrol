@@ -199,11 +199,18 @@ function mostrarOcultarModalCambioEstado() {
     }
 
     btnLevantarCarta.addEventListener('click', () => {
-        console.log("levantar carta")
+        // Si hay un personaje
         if (personaje) {
+            // Tira una carta aleatoria
             levantarCarta()
+            // La muestra
             mostrarCarta()
+            // La carta modifica el personaje
+            modificarAtributosPersonaje()
+            // Se muestran los cambios del personaje
+            mostrarPersonaje()
         }
+        // Si no hay un personaje se pide uno
         else consolaPersonajeTxt("Primero selecciona un personaje")
     })
 }
