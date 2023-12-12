@@ -1,38 +1,17 @@
-/**
- * ? Contiene la información del personaje seleccionado actualmente
- * @var {object} personaje
- */
+// ? Contiene la información del personaje seleccionado actualmente
 let personaje = null
-/**
- * ? Contiene la información del estado del personaje
- * @var {object} estado
- */
+// ? Contiene la información del estado del personaje
 let estado = null
-/**
- * ? Contiene la información de la carta seleccionada actualmente
- * @var {object} - carta
- */
+// ? Contiene la carta seleccionada actualmente
 let carta = null
 
-/**
- * ? Indica si el modal de selección de personajes está visible
- * @var {boolean}
- */
+// ? Indica si el modal de selección de personajes está visible
 let esModalAvatar = false
-/**
- * ? Indica si el modal de cambio de estado está visible
- * @var {boolean}
- */
+// ? Indica si el modal de cambio de estado está visible  
 let esModalCambioEstado = false
-/**
- * ? Indica si el botón para abrir el modal de personajes está visible
- * @var {boolean}
- */
+// ? Indica si el botón para abrir el modal de personajes está visible
 let esBtnCambiar = false
-/**
- * ? Indica si los botones para modificar vida están visibles
- * @var {boolean}
- */
+// ? Indica si los botones para modificar vida están visibles
 let esBtnMasMenos = false
 
 
@@ -201,7 +180,7 @@ function mostrarOcultarModalCambioEstado() {
 
 { // * Helpers
     /**
-     * ? Cambia el contenido de la consola de personajes
+     * Cambia el contenido de la consola de personajes
      * @param {string} txt - el texto nuevo
      */
     function consolaPersonajeTxt(txt) {
@@ -209,7 +188,7 @@ function mostrarOcultarModalCambioEstado() {
     }
 
     /**
-     * ? Capitaliza la primera letra de una cadena
+     * Capitaliza la primera letra de una cadena
      * @param {string} palabra - La palabra a capitalizar
      * @returns {string} La palabra con la primera letra en mayúscula
      */

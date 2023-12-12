@@ -1,6 +1,6 @@
 /**
  * ? Muestra los datos del personaje actual incluyendo imagen, atributos
- * y descripción.
+ * ? y descripción.
  */
 function mostrarPersonaje() {
     const atributos = ["ataque", "esquiva", "velocidad", "vida", "accion"]
@@ -47,7 +47,7 @@ function cambiarEstado(nombre) {
 
 /**
  *  ? Modifica los atributos del personaje actual
- * basado en su estado y en efectos de cartas
+ *  ? basado en su estado y en efectos de cartas
  */
 function modificarAtributosPersonaje() {
     // Restaura los valores originales del personaje
@@ -87,7 +87,7 @@ function cambiarPersonaje(nombre) {
 }
 
 /**
- * Modifica la vida del personaje actual sumando o restando 1 punto
+ * ? Modifica la vida del personaje actual sumando o restando 1 punto
  * @param {string} accion - "mas" para sumar vida, "menos" para restar vida
  */
 function modificarVida(accion) {
