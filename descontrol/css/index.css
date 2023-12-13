@@ -186,36 +186,36 @@ body {
 }
 
 .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    display: none;
-    width: 33vW;
-    height: 33vh;
-    grid-template-columns: repeat(3, 33%);
-    grid-template-rows: repeat(5, 20%);
+    grid-column: 4/span 3;
+    grid-row: 7/span 8;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     text-align: center;
     z-index: 250;
-    outline: solid #000000 9px;
-    border: solid #ffffff 9px;
+    border: solid #000 5px;
+    padding: 5px;
     background-color: rgb(255, 255, 255);
 }
 
 .item-modal.header {
     grid-column: 1/ span 2;
+    font-size: .8rem;
 }
 
 .item-modal {
     padding: 2px;
     border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border-radius: 5px;
+    width: 90%;
+    height: 90%;
 }
 
 .btn-cambiar-personaje {
@@ -298,6 +298,7 @@ body {
     justify-content: end;
     align-items: center;
 }
+
 .contenedor-selector-estado .cerrar-selector-estados img {
     width: calc(100% / 3);
 }
