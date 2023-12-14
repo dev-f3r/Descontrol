@@ -244,58 +244,52 @@ body {
 }
 
 .contenedor-selector-estado {
-    position: absolute;
-    top: calc(61% + 1px);
-    transform: translate(-50%, 0%);
-    left: 50vw;
+    grid-column: 3/ span 5;
+    grid-row: 12/ span 3;
     background-color: #fff;
-    width: 60vw;
-    height: calc(((100vh / 18) * 3) - 20px - 2px);
-    padding: 10px;
-    border: 1px solid #000;
+    border: 5px solid #000;
     display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 5px;
-    row-gap: 2px;
+    padding: 5px;
+    grid-template-rows: repeat(3, 33%);
+    grid-template-columns: repeat(5, 20%);
+    /* column-gap: 5px;
+    row-gap: 2px; */
 }
 
-.contenedor-selector-estado>* {
-    width: calc(100% / 3);
-    height: 100%;
-    border: 1px solid #000;
-}
-
-.contenedor-selector-estado .estado {
-    grid-row: 2/span 4;
-    width: 100%;
+.item-selector-estados {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
 }
 
 .contenedor-selector-estado img {
-    width: 80%;
-    background-color: #fff;
+    height: 90%;
+    width: 90%;
+    border-radius: 5px;
 }
 
-.contenedor-selector-estado .encabezado {
-    grid-column: 1/span 2;
-    width: 100%;
+.item-selector-estados.encabezado {
+    grid-column: 1/ span 4;
 }
 
-.contenedor-selector-estado .cerrar-selector-estados {
-    width: 100%;
-    grid-column: 3;
+.item-selector-estados.estados {
+    grid-column: 1/ span 5;
+    grid-row: 2/ span 2;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100%;
+    border: 0;
+}
+
+.item-selector-estados.estados .estado {
+    height: 100%;
     display: flex;
-    justify-content: end;
     align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
 }
-
-.contenedor-selector-estado .cerrar-selector-estados img {
-    width: calc(100% / 3);
-}
-
 
 @media only screen and (min-width: 600px) {
     body {
