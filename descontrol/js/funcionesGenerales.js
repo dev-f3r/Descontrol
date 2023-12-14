@@ -172,8 +172,6 @@ function mostrarOcultarModalCambioEstado() {
     })
 
     { // * Botones + y -
-        // Timer que se ejecuta mientras se mantiene presionado el boton
-        let timerPresionado
         // Identificadores de los botones de mas y menos vida
         const idsBotones = ["mas", "menos"]
 
@@ -187,16 +185,32 @@ function mostrarOcultarModalCambioEstado() {
                 // Ejecuta la funcion para sumar o restar vida
                 modificarVida(idBoton)
             })
-            // Agrega un manejador al evento mousedown 
-            boton.addEventListener('mousedown', () => {
+
+            // Timer que se ejecuta mientras se mantiene presionado el boton
+            let timerPresionado
+
+            function iniciarTimer() {
                 // Inicia el timer de ejecucion mientras se mantiene presionado
                 timerPresionado = setInterval(() => {
                     // Ejecuta la funcion para sumar o restar vida
                     modificarVida(idBoton)
                 }, 100)
+            }
+
+            // Agrega un manejador al evento mousedown 
+            boton.addEventListener('mousedown', () => {
+                iniciarTimer()
             })
+            boton.addEventListener('touchstart', () => {
+                iniciarTimer()
+            })
+
             // Agrega un manejador al evento mouseup
             boton.addEventListener('mouseup', () => {
+                // Detiene el timer
+                clearInterval(timerPresionado)
+            })
+            boton.addEventListener('touchend', () => {
                 // Detiene el timer
                 clearInterval(timerPresionado)
             })
@@ -224,7 +238,7 @@ function mostrarOcultarModalCambioEstado() {
     btnAtacar.addEventListener('click', () => {
         // Si hay un personaje
         if (personaje) {
-            if(atributo) atacar(atributo)
+            if (atributo) atacar(atributo)
             else consolaPersonajeTxt("Selecciona entre ataque, esquiva o velocidad")
         }
         // Si no hay un personaje se pide uno
