@@ -219,15 +219,11 @@ body {
 }
 
 .btn-cambiar-personaje {
-    position: absolute;
-    top: calc((100vh / 18) * 13.5);
-    left: 50%;
-    transform: translate(-50%, -40%);
+    grid-column: 4/ span 3;
+    grid-row: 14/ span 1;
     background: #000;
     color: #fff;
     z-index: 250;
-    width: 25%;
-    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
