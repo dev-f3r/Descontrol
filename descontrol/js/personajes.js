@@ -126,7 +126,7 @@ const personajesDict = {
         velocidad: 1,
         vida: 18,
         accion: 3,
-    }
+    },
 }
 
 

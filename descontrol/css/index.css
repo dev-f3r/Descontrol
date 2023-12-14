@@ -186,8 +186,8 @@ body {
 }
 
 .modal {
-    grid-column: 4/span 3;
-    grid-row: 7/span 8;
+    grid-column: 3/span 5;
+    grid-row: 8/span 8;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -200,8 +200,7 @@ body {
 }
 
 .item-modal.header {
-    grid-column: 1/ span 2;
-    font-size: .8rem;
+    grid-column: 1/ span 3;
 }
 
 .item-modal {
@@ -214,8 +213,8 @@ body {
 
 .modal-img {
     border-radius: 5px;
-    width: 90%;
-    height: 90%;
+    width: 98%;
+    height: 98%;
 }
 
 .btn-cambiar-personaje {
@@ -252,8 +251,6 @@ body {
     padding: 5px;
     grid-template-rows: repeat(3, 33%);
     grid-template-columns: repeat(5, 20%);
-    /* column-gap: 5px;
-    row-gap: 2px; */
 }
 
 .item-selector-estados {
@@ -310,5 +307,11 @@ body {
 
     .layout {
         width: 40vw;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .contenedor-selector-estado {
+        grid-row: 11/ span 4;
     }
 }
