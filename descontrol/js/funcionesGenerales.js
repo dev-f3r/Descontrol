@@ -206,11 +206,11 @@ function mostrarOcultarModalCambioEstado() {
             })
 
             // Agrega un manejador al evento mouseup
-            boton.addEventListener('mouseup', () => {
+            document.addEventListener('mouseup', () => {
                 // Detiene el timer
                 clearInterval(timerPresionado)
             })
-            boton.addEventListener('touchend', () => {
+            document.addEventListener('touchend', () => {
                 // Detiene el timer
                 clearInterval(timerPresionado)
             })
