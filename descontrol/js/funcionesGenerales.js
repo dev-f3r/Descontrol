@@ -172,8 +172,6 @@ function mostrarOcultarModalCambioEstado() {
     })
 
     { // * Botones + y -
-        // Timer que se ejecuta mientras se mantiene presionado el boton
-        let timerPresionado
         // Identificadores de los botones de mas y menos vida
         const idsBotones = ["mas", "menos"]
 
@@ -182,21 +180,51 @@ function mostrarOcultarModalCambioEstado() {
             // Obtiene la referencia al boton 
             const boton = document.getElementById(`${idBoton}Btn`)
 
+            // Agrega un manejador al evento contextmenu para prevenir el menú contextual
+            boton.addEventListener('contextmenu', (event) => {
+                event.preventDefault();
+            })
+
             // Agrega un manejador al evento click
             boton.addEventListener('click', () => {
                 // Ejecuta la funcion para sumar o restar vida
                 modificarVida(idBoton)
             })
-            // Agrega un manejador al evento mousedown 
-            boton.addEventListener('mousedown', () => {
+
+            // Timer que se ejecuta mientras se mantiene presionado el boton
+            let timerPresionado
+
+            function iniciarTimer() {
                 // Inicia el timer de ejecucion mientras se mantiene presionado
                 timerPresionado = setInterval(() => {
                     // Ejecuta la funcion para sumar o restar vida
                     modificarVida(idBoton)
                 }, 100)
+            }
+
+            // * Eventos para dispositivos de escritorio 
+            // Agrega un manejador al evento mousedown 
+            boton.addEventListener('mousedown', () => {
+                iniciarTimer()
             })
             // Agrega un manejador al evento mouseup
-            boton.addEventListener('mouseup', () => {
+            window.addEventListener('mouseup', () => {
+                // Detiene el timer
+                clearInterval(timerPresionado)
+            })
+            // Agrega manejadores para los eventos mouseout y mouseleave
+            boton.addEventListener('mouseout', () => {
+                clearInterval(timerPresionado)
+            })
+            boton.addEventListener('mouseleave', () => {
+                clearInterval(timerPresionado)
+            })
+
+            // * Eventos para dispositivos moviles
+            boton.addEventListener('touchstart', () => {
+                iniciarTimer()
+            })
+            window.addEventListener('touchend', () => {
                 // Detiene el timer
                 clearInterval(timerPresionado)
             })
@@ -224,7 +252,7 @@ function mostrarOcultarModalCambioEstado() {
     btnAtacar.addEventListener('click', () => {
         // Si hay un personaje
         if (personaje) {
-            if(atributo) atacar(atributo)
+            if (atributo) atacar(atributo)
             else consolaPersonajeTxt("Selecciona entre ataque, esquiva o velocidad")
         }
         // Si no hay un personaje se pide uno
