@@ -1,3 +1,8 @@
+// Previene la seleccion de texto
+document.onselectstart = function() {
+    return false;
+}
+
 /**
  * ? Contiene la información del personaje seleccionado actualmente
  * @var {object} personaje
@@ -252,8 +257,7 @@ function mostrarOcultarModalCambioEstado() {
     btnAtacar.addEventListener('click', () => {
         // Si hay un personaje
         if (personaje) {
-            if (atributo) atacar(atributo)
-            else consolaPersonajeTxt("Selecciona entre ataque, esquiva o velocidad")
+            atacar()
         }
         // Si no hay un personaje se pide uno
         else consolaPersonajeTxt("Primero selecciona un personaje")

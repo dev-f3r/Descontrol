@@ -132,40 +132,17 @@ function descripcionAtributo(nombre) {
  * ? Simula una acción de ataque, esquiva o movimiento
  * ? y muestra los resultados en la consola
  * 
- * @param {string} atributo - el atributo a utilizar 
  */
-function atacar(atributo) {
+function atacar() {
     // Tira un dado de 6 caras 
     let dado = Math.floor(Math.random() * 6) + 1
 
     // El texto a mostrar
-    let texto = ""
-
-    // Determina el texto inicial según el atributo
-    switch (atributo) {
-        case "ataque":
-            texto = "Ataque"
-            break
-        case "esquiva":
-            texto = "Esquiva"
-            break
-        case "velocidad":
-            texto = "Corre"
-            break
-        default:
-            break
-    }
+    let texto = "Ataque"
 
     // Verifica si fue un critico
     if (dado === 6) {
-        texto += "<br>¡CRITICO!<br>"
-
-        // Calcula el daño critico para ataque
-        if (atributo === "ataque") {
-            texto += `Daño base ${Math.floor(personaje.ataque * 2)}`
-        } else {
-            texto += Math.floor(personaje.ataque * 2)
-        }
+        texto += `<br>¡CRITICO!<br>Daño base ${Math.floor(personaje.ataque * 2)}`
     }
     // Verifica si fue un fallo
     else if (dado === 1) {
@@ -173,12 +150,7 @@ function atacar(atributo) {
     }
     // Resultado normal
     else {
-        texto += `<br>${personaje[atributo] + dado}<br>`
-
-        // Agrega el daño base para ataque
-        if (atributo === "ataque") {
-            texto += `Daño base ${personaje.ataque}`
-        }
+        texto += `<br>${personaje.ataque + dado}<br>Daño base ${personaje.ataque}`
     }
 
     // Muestra el resultado en la consola
