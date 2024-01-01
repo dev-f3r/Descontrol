@@ -1,71 +1,71 @@
 const personajesDict = {
-    "default": {
-        nombre: "default",
-        descripcion: "personaje sin descripción",
-        imagen: "img/nuevopjico.png",
+    "EL FORMAL": {
+        nombre: "EL FORMAL",
+        descripcion: "EL FORMAL",
+        imagen: "img/formal.png",
         ataque: 0,
         esquiva: 0,
         velocidad: 0,
         vida: 0,
-        accion: 0,
+        accion: 3,
     },
-    "test1": {
-        nombre: "test1",
-        descripcion: "descripcion test1",
-        imagen: "img/loboico.png",
+    "COLADO": {
+        nombre: "COLADO",
+        descripcion: "EL COLADO",
+        imagen: "img/colado.png",
         ataque: 6,
         esquiva: 5,
         velocidad: 4,
         vida: 18,
-        accion: 2,
+        accion: 3,
     },
-    "test2": {
-        nombre: "test2",
-        descripcion: "descripcion test2",
-        imagen: "img/esbirrosico.png",
+    "LA TIA": {
+        nombre: "LA TIA",
+        descripcion: "LA TIA VIOLENTA",
+        imagen: "img/tia.png",
         ataque: 5,
         esquiva: 4,
         velocidad: 3,
         vida: 18,
-        accion: 1,
+        accion: 3,
     },
-    "test3": {
-        nombre: "test3",
-        descripcion: "descripcion test3",
-        imagen: "img/magoico.png",
+    "EL MISTERIOSO": {
+        nombre: "EL MISTERIOSO",
+        descripcion: "EL MISTERIOSO",
+        imagen: "img/misterioso.png",
         ataque: 4,
         esquiva: 3,
         velocidad: 2,
         vida: 18,
-        accion: 6,
+        accion: 3,
     },
 
-    "test4": {
-        nombre: "test4",
-        descripcion: "descripcion test4",
-        imagen: "img/personajeico.png",
+    "LA LOCA": {
+        nombre: "LA LOCA",
+        descripcion: "LA LOCA",
+        imagen: "img/loca.png",
         ataque: 3,
         esquiva: 2,
         velocidad: 1,
         vida: 18,
-        accion: 5,
+        accion: 3,
     },
 
-    "test5": {
-        nombre: "test5",
-        descripcion: "descripcion test5",
-        imagen: "img/cazadorico.png",
+    "EL BARMAN": {
+        nombre: "EL BARMAN",
+        descripcion: "EL BARMAN",
+        imagen: "img/barman.png",
         ataque: 2,
         esquiva: 1,
         velocidad: 6,
         vida: 18,
-        accion: 4,
+        accion: 3,
     },
 
-    "test6": {
-        nombre: "test6",
-        descripcion: "descripcion test6",
-        imagen: "img/protectorrunico.png",
+    "EL CHETO": {
+        nombre: "EL CHETO",
+        descripcion: "EL CHETO",
+        imagen: "img/cheto.png",
         ataque: 1,
         esquiva: 3,
         velocidad: 5,
@@ -73,54 +73,54 @@ const personajesDict = {
         accion: 3,
     },
 
-    "test7": {
-        nombre: "test7",
-        descripcion: "descripcion test7",
-        imagen: "img/tortaklaico.png",
+    "LA CUMPLEAÑERA": {
+        nombre: "LA CUMPLEAÑERA",
+        descripcion: "LA CUMPLAÑERA",
+        imagen: "img/cumpleanera.png",
         ataque: 4,
         esquiva: 2,
         velocidad: 6,
         vida: 18,
-        accion: 1,
+        accion: 3,
     },
 
-    "test8": {
-        nombre: "test8",
-        descripcion: "descripcion test8",
-        imagen: "img/nigromanteico.png",
+    "LA INTROVERTIDA": {
+        nombre: "LA INTROVERTIDA",
+        descripcion: "LA INTROVERTIDA",
+        imagen: "img/introvertida.png",
         ataque: 3,
         esquiva: 6,
         velocidad: 2,
         vida: 18,
-        accion: 4,
+        accion: 3,
     },
 
-    "test9": {
-        nombre: "test9",
-        descripcion: "descripcion test9",
-        imagen: "img/paladinico.png",
+    "LA LINDA": {
+        nombre: "LA LINDA",
+        descripcion: "LA LINDA",
+        imagen: "img/linda.png",
         ataque: 5,
         esquiva: 3,
         velocidad: 4,
         vida: 18,
-        accion: 2,
+        accion: 3,
     },
 
-    "test10": {
-        nombre: "test10",
-        descripcion: "descripcion test10",
-        imagen: "img/chamanico.png",
+    "EL VIEJO": {
+        nombre: "EL VIEJO",
+        descripcion: "EL VIEJO",
+        imagen: "img/viejo.png",
         ataque: 2,
         esquiva: 5,
         velocidad: 3,
         vida: 18,
-        accion: 6,
+        accion: 3,
     },
 
-    "test11": {
-        nombre: "test11",
-        descripcion: "descripcion test11",
-        imagen: "img/guerreroico.png",
+    "EL FUMON": {
+        nombre: "EL FUMON",
+        descripcion: "EL FUMON",
+        imagen: "img/fumon.png",
         ataque: 4,
         esquiva: 6,
         velocidad: 1,
@@ -138,11 +138,11 @@ const estadosDict = {
             imagen: "img/ebrio.png",
         },
         atributos: {
-            ataque: 0,
+            ataque: -1,
             esquiva: -2,
-            velocidad: -2,
-            vida: -2,
-            accion: 2,
+            velocidad: 0,
+            vida: 0,
+            accion: -1,
         },
     },
     lucido: {
@@ -166,9 +166,9 @@ const estadosDict = {
         atributos: {
             ataque: 2,
             esquiva: 2,
-            velocidad: 2,
+            velocidad: 1,
             vida: 0,
-            accion: -2,
+            accion: 1,
         },
     }
 }

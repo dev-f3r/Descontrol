@@ -142,15 +142,15 @@ function atacar() {
 
     // Verifica si fue un critico
     if (dado === 6) {
-        texto += `<br>¡CRITICO!<br>Daño base ${Math.floor(personaje.ataque * 2)}`
+        texto += ` ${dado}<br>Daño ${Math.floor(personaje.ataque * 1.5)}`
     }
     // Verifica si fue un fallo
     else if (dado === 1) {
-        texto += "<br>¡PIFIA!"
+        texto += ` ${dado}<br>Daño ${personaje.ataque}`
     }
     // Resultado normal
     else {
-        texto += `<br>${personaje.ataque + dado}<br>Daño base ${personaje.ataque}`
+        texto += ` ${dado}<br>Daño ${personaje.ataque}`
     }
 
     // Muestra el resultado en la consola

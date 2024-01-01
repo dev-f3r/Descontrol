@@ -13,7 +13,7 @@ const cartasDict = {
             esquiva: 0,
             velocidad: 0,
             vida: 0,
-            accion: 1,
+            accion: 0,
         },
 
         "NO PASA NADA": {
@@ -24,11 +24,11 @@ const cartasDict = {
             esquiva: 0,
             velocidad: 0,
             vida: 0,
-            accion: 1,
+            accion: 0,
         },
 
 
-
+        
     },
 
     especiales: {
@@ -80,7 +80,7 @@ const cartasDict = {
 
         "BORRACHO": {
             nombre: "BORRACHO",
-            descripcion: "TOMASTE DEMASIADO Y AHORA PIERDES 1 PUNTO DE ESQUIVA PERMANENTE O HASTA ENCONTRAR AGUA MINERAL",
+            descripcion: "TOMASTE DEMASIADO Y AHORA ESTAS BORRACHO PERMANENTE O HASTA ENCONTRAR AGUA MINERAL",
             imagen: "img/borracho.png",
             ataque: 0,
             esquiva: 0,
@@ -188,8 +188,8 @@ const cartasDict = {
             accion: 0,
         },
 
-
-
+        
+       
     },
     epicas: {
 
@@ -201,7 +201,7 @@ const cartasDict = {
             esquiva: 0,
             velocidad: 0,
             vida: 0,
-            accion: 1,
+            accion: 0,
         },
 
         "NO PASA NADA": {
@@ -212,16 +212,16 @@ const cartasDict = {
             esquiva: 0,
             velocidad: 0,
             vida: 0,
-            accion: 1,
+            accion: 0,
         },
 
+      
 
+       
 
-
-
-
+    
     },
-
+  
 }
 
 /**
