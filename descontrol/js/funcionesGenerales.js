@@ -241,12 +241,16 @@ function mostrarOcultarModalCambioEstado() {
     btnLevantarCarta.addEventListener('click', () => {
         // Si hay un personaje
         if (personaje) {
+            // Conservo la vida del personaje para recuperarla luego de reestaurarlo
+            vidaActual = personaje.vida
             // Tira una carta aleatoria
             levantarCarta()
             // La muestra
             mostrarCarta()
             // La carta modifica el personaje
             modificarAtributosPersonaje()
+            // La asigna al personaje
+            personaje.vida = vidaActual
             // Se muestran los cambios del personaje
             mostrarPersonaje()
         }

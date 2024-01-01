@@ -28,7 +28,7 @@ const cartasDict = {
         },
 
 
-        
+
     },
 
     especiales: {
@@ -188,8 +188,8 @@ const cartasDict = {
             accion: 0,
         },
 
-        
-       
+
+
     },
     epicas: {
 
@@ -215,13 +215,13 @@ const cartasDict = {
             accion: 1,
         },
 
-      
 
-       
 
-    
+
+
+
     },
-  
+
 }
 
 /**
