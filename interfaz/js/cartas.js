@@ -59,6 +59,7 @@ const cartasDict = {
             velocidad: 0,
             vida: 0,
             accion: 0,
+            "nuevo estado": 'ebrio'
         },
 
         "HUMO": {
@@ -92,6 +93,7 @@ const cartasDict = {
             velocidad: 0,
             vida: 0,
             accion: 0,
+            "nuevo estado": 'lucido'
         },
 
         "ENERGIZANTE": {
@@ -103,6 +105,7 @@ const cartasDict = {
             velocidad: 0,
             vida: 0,
             accion: 1,
+            "nuevo estado": 'extaciado'
         },
 
         "¡TEMAZO!": {
@@ -238,7 +241,7 @@ const cartasDict = {
             accion: 0,
         },
 
-        
+
     },
 
     especiales: {
@@ -276,10 +279,10 @@ const cartasDict = {
             accion: 0,
         },
 
-       
-      
-        
-       
+
+
+
+
     },
     epicas: {
 
@@ -317,11 +320,11 @@ const cartasDict = {
         },
 
 
-       
 
-    
+
+
     },
-  
+
 }
 
 /**

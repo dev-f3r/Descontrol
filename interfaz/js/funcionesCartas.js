@@ -39,9 +39,26 @@ function levantarCarta() {
     // Obtiene un indice aleatorio del mazo 
     let indice = Math.floor(Math.random() * maso.length)
 
+    // Obtiene el nombre de la carta elegida
+    let nombreCarta = maso[indice]
+
     // Inicializa la carta actual si no existe
     if (!carta) carta = {}
 
     // Asigna las propiedades de la carta elegida
-    Object.assign(carta, cartasDict[tipo][maso[indice]])
+    cambiarCarta(tipo, nombreCarta)
+}
+
+/**
+ * ? Cambia la carta actual por otra
+ * ? En caso de tener la prop 'nuevo estado', tambien cambiara el estado del personaje
+ * @param {tipo} string - El tipo de la nueva carta
+ * @param {nombre} string - El nombre de la nueva carta
+ */
+function cambiarCarta(tipo, nombre) {
+    console.log(carta, cartasDict[tipo][nombre])
+    Object.assign(carta, cartasDict[tipo][nombre])
+    if(carta["nuevo estado"]) {
+        document.getElementById(carta["nuevo estado"]).click()
+    }
 }
