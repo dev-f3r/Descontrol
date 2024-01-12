@@ -244,7 +244,7 @@ function mostrarOcultarModalCambioEstado() {
         // Si hay un personaje
         if (personaje) {
             // Guarda la vida actual del personaje
-            // vidaActual = personaje.vida
+            vidaActual = personaje.vida
             // Tira una carta aleatoria
             levantarCarta()
             // La muestra
@@ -252,7 +252,7 @@ function mostrarOcultarModalCambioEstado() {
             // La carta modifica el personaje
             modificarAtributosPersonaje()
             // Asigna la vida anterior al reinicio del personaje
-            // personaje.vida = vidaActual
+            personaje.vida = vidaActual
             // Se muestran los cambios del personaje
             mostrarPersonaje()
         }
