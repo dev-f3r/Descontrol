@@ -55,7 +55,7 @@ function modificarAtributosPersonaje() {
     const listaAtributos = ["ataque", "esquiva", "velocidad", "vida", "accion"]
 
     // Restaura los valores originales del personaje
-    reestaurarPersonaje()
+    // reestaurarPersonaje()
 
     // Si hay un estado activo
     if (estado) {
